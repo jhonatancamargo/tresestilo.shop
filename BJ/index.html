@@ -47,6 +47,27 @@ fbq('track', 'ViewContent');
 src="https://www.facebook.com/tr?id=1364281301161372&ev=PageView&noscript=1"
 /></noscript>
 <!-- fim do pixel facebook -->
+    <!-- Mgid Sensor -->
+<script type="text/javascript">
+    (function() {
+        var d = document, w = window;
+        w.MgSensorData = w.MgSensorData || [];
+        w.MgSensorData.push({
+            cid:852393,
+            lng:"us",
+            project: "a.mgid.com"
+        });
+        var l = "a.mgid.com";
+        var n = d.getElementsByTagName("script")[0];
+        var s = d.createElement("script");
+        s.type = "text/javascript";
+        s.async = true;
+        var dt = !Date.now?new Date().valueOf():Date.now();
+        s.src = "https://" + l + "/mgsensor.js?d=" + dt;
+        n.parentNode.insertBefore(s, n);
+    })();
+</script>
+<!-- /Mgid Sensor -->
 
 </head>
 <body>
