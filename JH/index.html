@@ -12,33 +12,38 @@
   <!-- pixel facebook-->
  
    
-    <script>
-    // Função para verificar se o parâmetro está presente na URL
-    function hasParameter(name) {
-        const urlParams = new URLSearchParams(window.location.search);
-        return urlParams.has(name); // Verifica se o parâmetro existe
-    }
-
-    // Executa quando o script é carregado
-    (function() {
-        // Verifica se o parâmetro 'jhonatan' está presente na URL
-        if (hasParameter('jhonatan')) {
-            // Se o parâmetro estiver presente, remove-o e atualiza a URL
-            const urlParams = new URLSearchParams(window.location.search);
-            urlParams.delete('jhonatan'); // Remove o parâmetro da URL
-            const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + (urlParams.toString() ? '?' + urlParams.toString() : ''); // Cria a nova URL sem o parâmetro
-            window.history.replaceState({}, document.title, newUrl); // Atualiza a URL no navegador
-
-            // Exibe a mensagem de redirecionamento (se necessário)
-            document.getElementById('redirectMessage').style.display = 'none'; // Oculta a mensagem, se houver
-        } else {
-            // Se o parâmetro não estiver presente, abre a URL desejada em uma nova aba
-            window.open('https://www.xvideos.com/tags/vedo', '_blank');
+   <script>
+  // Função para obter parâmetros da URL
+  function getURLParameter(name) {
+    return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
+  }
+  
+  // Função para remover um parâmetro específico da URL
+  function removeURLParameter(url, parameter) {
+    var urlparts = url.split('?');
+    if (urlparts.length >= 2) {
+      var prefix = encodeURIComponent(parameter) + '=';
+      var pars = urlparts[1].split(/[&;]/g);
+      for (var i = pars.length; i-- > 0;) {
+        if (pars[i].lastIndexOf(prefix, 0) !== -1) {
+          pars.splice(i, 1);
         }
-    })();
-    </script>
-
-</html>
+      }
+      return urlparts[0] + (pars.length > 0 ? '?' + pars.join('&') : '');
+    }
+    return url;
+  }
+  
+  // Verifica se a página foi acessada pelo script específico
+  if (getURLParameter('jhonatan') !== 'true') {
+    // Redireciona o usuário para outra página (por exemplo, página inicial)
+    window.location.href = "https:google.com";
+  } else {
+    // Remove apenas o parâmetro 'vazarato' da URL sem recarregar a página
+    var cleanURL = removeURLParameter(window.location.href, 'jhonatan');
+    history.replaceState(null, null, cleanURL);
+  }
+  </script>  
 
 
 
