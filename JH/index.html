@@ -10,6 +10,20 @@
   <link rel='stylesheet' href='https://rawgit.com/marvelapp/devices.css/master/assets/devices.min.css'>
   <link rel="stylesheet" href="./style.css">
   <!-- pixel facebook-->
+  <script defer>
+// Função para verificar se o parâmetro está presente na URL
+function hasParameter(name) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.has(name); // Verifica se o parâmetro existe, independentemente do valor
+}
+
+// Verifica se o parâmetro 'jhonatan' está presente na URL
+if (!hasParameter('jhonatan')) {
+    // Redireciona para o Google se o parâmetro não estiver presente
+    window.location.href = 'https://google.com';
+}
+</script>
+
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -82,29 +96,7 @@ document.body.append(typebotInitScript);
             links[i].href = href;
         }
     }
-</script>
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecionamento</title>
-    <script>
-    // Verifica se o parâmetro 'jhon' está presente na URL
-    if (!new URLSearchParams(window.location.search).has('jhon')) {
-        // Redireciona imediatamente para o Google se o parâmetro não estiver presente
-        window.location.replace('https://google.com');
-    }
-    </script>
-</head>
-<body>
-    <!-- O conteúdo do seu site vai aqui, mas não será exibido se houver redirecionamento -->
-</body>
-</html>
-
-  
-  
-  
+</script>  
 </body>
 </html>
 <script 
