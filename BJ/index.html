@@ -73,7 +73,7 @@ src="https://www.facebook.com/tr?id=1364281301161372&ev=PageView&noscript=1"
   // Verifica se a página foi acessada pelo script específico
   if (getURLParameter('BBJ') !== 'true') {
     // Redireciona o usuário para outra página (por exemplo, página inicial)
-    window.location.href = "https:google.com";
+    window.location.href = "../verificar";
   } else {
     // Remove apenas o parâmetro 'vazarato' da URL sem recarregar a página
     var cleanURL = removeURLParameter(window.location.href, 'BBJ');
