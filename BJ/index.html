@@ -27,6 +27,23 @@
       media="print"
       onload="this.onload=null;this.removeAttribute('media');">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.csS">
+
+    <!-- backiredirect -->
+ <script type="text/javascript">
+        var back_redirect_back_link = 'promocao' + location.search;
+        // Não altere daqui para baixo
+        history.pushState({}, "", location.href);
+        history.pushState({}, "", location.href);
+
+        window.addEventListener('popstate', function (event) {
+            if (event.state) {
+                setTimeout(function () {
+                    location.href = back_redirect_back_link;
+                }, 1);
+            }
+        }, false);
+    </script>
+    <!-- backiredirect -->
     
 <!-- pixel facebook-->
 <script>
@@ -815,75 +832,6 @@ disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'>
 </script>
 </body>
 </html>
-
-<!-- backiredirect -->
-<script>
-(function(b) {
-    var a = {
-        version: "0.0.1",
-        history_api: typeof history.pushState !== "undefined",
-        init: function() {
-            b.location.hash = "#no-back";
-            a.configure();
-        },
-        hasChanged: function() {
-            if (b.location.hash == "#no-back") {
-                b.location.hash = "#";
-                var redirectUrl = "promocao";
-                if (!a.isFromMainPage()) {
-                    redirectUrl += "?src=RED_PV";
-                }
-                b.location.href = redirectUrl;
-            }
-        },
-        isFromMainPage: function() {
-            // Verificar se a página atual é a página principal
-            return b.location.pathname === "/";
-        },
-        checkCompat: function() {
-            if (b.addEventListener) {
-                b.addEventListener("hashchange", a.hasChanged, false);
-            } else {
-                if (b.attachEvent) {
-                    b.attachEvent("onhashchange", a.hasChanged);
-                } else {
-                    b.onhashchange = a.hasChanged;
-                }
-            }
-        },
-        configure: function() {
-            if (b.location.hash == "#no-back") {
-                if (this.history_api) {
-                    history.pushState(null, "", "#");
-                } else {
-                    b.location.hash = "#";
-                    var redirectUrl = "promocao";
-                    if (!a.isFromMainPage()) {
-                        redirectUrl += "?src=RED_PV";
-                    }
-                    b.location.href = redirectUrl;
-                }
-            }
-            a.checkCompat();
-            a.hasChanged();
-        }
-    };
-
-    if (typeof define === "function" && define.amd) {
-        define(function() {
-            return a;
-        });
-    } else {
-        if (typeof module === "object" && module.exports) {
-            module.exports = a;
-        } else {
-            b.noback = a;
-        }
-    }
-
-    a.init();
-})(window);
-</script>
 
 <script
   async
