@@ -21,17 +21,6 @@
     </script>
     
      <script>
-  // Função para detectar bots de plataformas específicas
-  function isBot() {
-    const userAgent = navigator.userAgent.toLowerCase();
-    return (
-      userAgent.includes('facebook') || 
-      userAgent.includes('instagram') ||
-      userAgent.includes('googlebot') ||
-      userAgent.includes('tiktok')
-    );
-  }
-  
   // Função para obter parâmetros da URL
   function getURLParameter(name) {
     return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
@@ -53,8 +42,8 @@
     return url;
   }
   
-  // Verifica se a página foi acessada por um bot ou sem o parâmetro específico
-  if (isBot() || getURLParameter('BBJ') !== 'true') {
+  // Verifica se o parâmetro 'BBJ' está presente e é igual a 'true'
+  if (getURLParameter('BBJ') !== 'true') {
     // Redireciona o usuário para outra página (por exemplo, página inicial)
     window.location.href = "../verificar";
   } else {
@@ -63,6 +52,7 @@
     history.replaceState(null, null, cleanURL);
   }
 </script>
+
     
     <style>
         html,
