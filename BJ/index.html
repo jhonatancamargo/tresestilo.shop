@@ -78,18 +78,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 </script>
 <!-- TikTok Pixel Code End -->
     
-    <!--script>
-  // Função para detectar bots de plataformas específicas
-  function isBot() {
-    const userAgent = navigator.userAgent.toLowerCase();
-    return (
-      userAgent.includes('facebook') || 
-      userAgent.includes('instagram') ||
-      userAgent.includes('googlebot') ||
-      userAgent.includes('tiktok')
-    );
-  }
-  
+   <script>
   // Função para obter parâmetros da URL
   function getURLParameter(name) {
     return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
@@ -111,8 +100,8 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
     return url;
   }
   
-  // Verifica se a página foi acessada por um bot ou sem o parâmetro específico
-  if (isBot() || getURLParameter('BBJ') !== 'true') {
+  // Verifica se o parâmetro 'BBJ' está presente e é igual a 'true'
+  if (getURLParameter('BBJ') !== 'true') {
     // Redireciona o usuário para outra página (por exemplo, página inicial)
     window.location.href = "../verificar";
   } else {
@@ -120,7 +109,8 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
     var cleanURL = removeURLParameter(window.location.href, 'BBJ');
     history.replaceState(null, null, cleanURL);
   }
-</script-->
+</script>
+
   
 
 </head>
