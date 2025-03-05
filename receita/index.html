@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="3;url=https://wa.me/558596061246?text=tenho%20interese">
+    <title> RED RECEITAS</title>
+
+    <script>
+        // Função para obter parâmetros da URL
+        function getURLParameter(name) {
+          return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
+        }
+        
+        // Função para remover um parâmetro específico da URL
+        function removeURLParameter(url, parameter) {
+          var urlparts = url.split('?');
+          if (urlparts.length >= 2) {
+            var prefix = encodeURIComponent(parameter) + '=';
+            var pars = urlparts[1].split(/[&;]/g);
+            for (var i = pars.length; i-- > 0;) {
+              if (pars[i].lastIndexOf(prefix, 0) !== -1) {
+                pars.splice(i, 1);
+              }
+            }
+            return urlparts[0] + (pars.length > 0 ? '?' + pars.join('&') : '');
+          }
+          return url;
+        }
+        
+        // Verifica se o parâmetro 'RC' está presente e é igual a 'true'
+        if (getURLParameter('RC') !== 'true') {
+          // Redireciona o usuário para outra página (por exemplo, página inicial)
+          window.location.href = "https://google.com.br";
+        } else {
+          // Remove apenas o parâmetro 'BBJ' da URL sem recarregar a página
+          var cleanURL = removeURLParameter(window.location.href, 'RC');
+          history.replaceState(null, null, cleanURL);
+        }
+      </script>
+
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            text-align: center;
+            transform: scale(1.5); /* Aumenta o tamanho de todos os elementos */
+        }
+
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-top: 4px solid #0074E1;
+            border-radius: 50%;
+            animation: spin 2s linear infinite;
+            margin: auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            /* Estilos para dispositivos móveis (largura máxima de 768px) */
+            .container {
+                transform: scale(1.2); /* Ajuste o fator de escala conforme necessário para dispositivos móveis */
+            }
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="container">
+        <div class="spinner"></div>
+        <h1>Abrindo o WhatsApp</h1>
+        <p>Aguarde, você está sendo redirecionado para o WhatsApp...</p>
+    </div>
+    <script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-1DFMKE452Y"
+></script>
+
+<script>
+  window.dataLayer = window.dataLayer || []
+  function gtag() {
+    dataLayer.push(arguments)
+  }
+  gtag('js', new Date())
+
+  gtag('config', 'G-1DFMKE452Y')
+</script>
+
+</body>
+</html>
